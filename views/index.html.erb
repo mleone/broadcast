@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Android Broadcast</title>
+
+  <link href="/style.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="/application.js"></script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        initializeGoogleMap("<%= @latitude %>", "<%= @longitude %>");
+        //var loc = "";
+        //if (loc) { codeAddress(loc); }
+    });
+  </script>
+
+</head>
+<body>
+
+  <div id="wrap">
+      <div id="header">
+          <img src="/images/broadcast.jpg" alt="Android Broacast" width=112" height="138" />
+          <div id="summary">
+              <ul>
+                  <li class="first">
+                      <strong>status:</strong> 
+                      <code>alive</code>
+                  </li>
+                  <li>
+                      <strong>internal temp:</strong> 
+                      <code><%= @temp %> &deg;C</code>
+                  </li>
+                  <li class="last">
+                      <strong>host:</strong>
+                      <script type="text/javascript">document.write(location.host);</script>
+                  </li>
+              </ul>
+          </div>
+          <div class="clear"></div>
+      </div>
+
+      <div class="cactus-bar"></div>
+      
+      <div id="backtrace" class='condensed'>
+          <h3 id="location-info">LAST LOCATION</h3>
+          <div class="clear"></div>
+
+          <div id="map_canvas" style="width:350px; height:300px"></div>
+          <div class="clear"></div>
+      </div>
+  </div> <!-- /WRAP -->
+</body>
+</html>
+

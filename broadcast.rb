@@ -1,17 +1,35 @@
-require "android"
+begin
+  require "android"
+rescue LoadError
+  require "mock_android"
+end
+
+require "erb"
 
 class Broadcast < Sinatra::Base 
+
+  DROID = Android.new
+
+  set :views, File.join(APP_DIR, "views")
+  set :public, File.join(APP_DIR, "public")
+
   get '/' do
-    "good"
-=begin
+    @temp = DROID.batteryGetTemperature
+    get_location_coordinates
+    erb :"index.html" 
+  end
+
+  get "/snapshot" do
     content_type 'image/png'
-    droid = Android.new
-    droid.cameraCapturePicture "/tmp/pic"
-    pic = File.open("/tmp/pic", "r")
-    image_data = pic.read
-    pic.close
-    File.delete "/tmp/pic"
-    image_data.to_blob
-=end
+    img_path = File.join APP_DIR, "snapshots", "latest.png"
+    DROID.cameraCapturePicture img_path
+    File.read(img_path).to_blob
+  end
+
+  def get_location_coordinates
+    result = DROID.getLastKnownLocation["result"]
+    location_data = result["gps"] || result["passive"]
+    @latitude, @longitude = location_data["latitude"], location_data["longitude"]
+    !!@longitude
   end
 end
