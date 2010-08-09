@@ -93,3 +93,13 @@ table td.code div   {width:750px;overflow:hidden}
   overflow:hidden;
   padding:0;
 }
+
+#location-container 
+{
+  float:left;
+}
+
+#snapshot-container 
+{
+  float:right;
+}

@@ -30,11 +30,11 @@
               <ul>
                   <li class="first">
                       <strong>status:</strong> 
-                      <code>alive</code>
+                      <code><%= @status %></code>
                   </li>
                   <li>
                       <strong>internal temp:</strong> 
-                      <code><%= @temp %> &deg;C</code>
+                      <code><%= @temp %>&deg;C</code>
                   </li>
                   <li class="last">
                       <strong>host:</strong>
@@ -47,11 +47,16 @@
 
       <div class="cactus-bar"></div>
       
-      <div id="backtrace" class='condensed'>
-          <h3 id="location-info">LAST LOCATION</h3>
-          <div class="clear"></div>
-
-          <div id="map_canvas" style="width:350px; height:300px"></div>
+      <div id="backtrace" class='condensed' style="height:400px">
+          <div id="location-container">
+              <h3 id="location-info">LOCATION</h3><br />
+              <div id="map_canvas" style="width:450px; height:363px"></div>
+          </div>
+          
+          <div id="snapshot-container">
+              <h3 id="camera-info">LIVE VIEW</h3><br />
+              <img src="/snapshot.jpg" width="486" length="363">
+          </div>
           <div class="clear"></div>
       </div>
   </div> <!-- /WRAP -->
