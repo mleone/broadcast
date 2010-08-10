@@ -1,52 +1,23 @@
-begin
-  require "android"
-rescue LoadError
-  require "mock_android"
-end
-
 require "erb"
+require "android_interface"
 
 class Broadcast < Sinatra::Base 
-  DROID = Android.new
+
+  include AndroidInterface
 
   set :views, File.join(APP_DIR, "views")
   set :public, File.join(APP_DIR, "public")
 
   get '/' do
-    set_location_coordinates
-    set_temp
-    set_status
+    @latitude, @longitude = location_coordinates
+    @temp = battery_temperature
+    @status = battery_status
     erb :"index.html" 
   end
 
   get "/snapshot.jpg" do
     content_type 'image/png'
-    img_path = File.join APP_DIR, "snapshots", "latest.jpg"
-    DROID.cameraCapturePicture img_path
-    File.read(img_path)
+    capture_picture_data
   end
 
-  def set_temp
-    @temp = DROID.batteryGetTemperature["result"].to_f / 10
-  end
-
-  def set_status
-    map =  {
-      "1" => "unknown",
-      "2" => "charging",
-      "3" => "discharging",
-      "4" => "not charging",
-      "5" => "full"
-    }
-    
-    result = DROID.batteryGetStatus["result"].to_s
-    @status = map[result]
-  end
-
-  def set_location_coordinates
-    result = DROID.getLastKnownLocation["result"]
-    location_data = result["gps"] || result["passive"]
-    @latitude, @longitude = location_data["latitude"], location_data["longitude"]
-    !!@longitude
-  end
 end
