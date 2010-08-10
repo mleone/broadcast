@@ -26,14 +26,14 @@ module AndroidInterface
 
   def location_coordinates
     result = DROID.getLastKnownLocation["result"]
-    location_data = result["gps"] || result["passive"]
-    latitude, longitude = location_data["latitude"], location_data["longitude"]
+    data = result["gps"] || result["passive"]
+    latitude, longitude = data["latitude"], data["longitude"]
     longitude ? [latitude, longitude] : false
   end
 
-  # stub.  returns data
+  # stub
   def capture_picture_data
-    img_path = File.join APP_DIR, "snapshots", "latest.jpg"
+    img_path = File.join SNAPSHOT_DIR, "latest.jpg"
     DROID.cameraCapturePicture img_path
     File.read(img_path)
   end

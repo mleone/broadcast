@@ -5,8 +5,8 @@ class Broadcast < Sinatra::Base
 
   include AndroidInterface
 
-  set :views, File.join(APP_DIR, "views")
-  set :public, File.join(APP_DIR, "public")
+  set :views, VIEW_DIR
+  set :public, PUBLIC_DIR
 
   get '/' do
     @latitude, @longitude = location_coordinates

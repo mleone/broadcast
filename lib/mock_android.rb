@@ -1,3 +1,5 @@
+require "fileutils"
+
 class Android
   @@id = 1
 
@@ -20,7 +22,13 @@ class Android
     {"error" => nil, "id" => get_id, "result" => 3}
   end
 
+  # this stub takes a random test image and copies it to latest.jpg
   def cameraCapturePicture(path)
+    images = %w(test1.jpg test2.jpg test3.jpg)
+    image = images[rand images.size]
+    dest = File.join SNAPSHOT_DIR, "latest.jpg"
+    src = File.join IMAGE_DIR, image
+    FileUtils.copy src, dest
     true
   end
 

@@ -59,3 +59,12 @@ function codeAddress(address) {
     });
   }
 }
+
+function refreshLiveView() {
+  el = $("#snapshot");
+  my_date = new Date;
+  path = "/snapshot.jpg?" + my_date.getTime();
+  el.fadeOut();
+  el.attr("src", path);
+  el.fadeIn();
+}
