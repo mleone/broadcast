@@ -1,8 +1,8 @@
 require "erb"
+require "json/pure"
 require "android_interface"
 
 class Broadcast < Sinatra::Base 
-
   include AndroidInterface
 
   set :views, VIEW_DIR
@@ -20,4 +20,8 @@ class Broadcast < Sinatra::Base
     capture_picture_data
   end
 
+  get '/location.json' do
+    content_type 'json'
+    location_coordinates.to_json
+  end
 end
