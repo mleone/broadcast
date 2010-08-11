@@ -31,7 +31,7 @@ function initializeGoogleMap(latitude, longitude) {
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(latitude, longitude);
   var myOptions = {
-    zoom: 8,
+    zoom: 6,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -64,7 +64,19 @@ function refreshLiveView() {
   el = $("#snapshot");
   my_date = new Date;
   path = "/snapshot.jpg?" + my_date.getTime();
-  el.fadeOut();
-  el.attr("src", path);
-  el.fadeIn();
+  el.fadeOut('slow', function() {
+    el.attr("src", path);
+    el.fadeIn('slow');
+  });
 }
+
+function refreshMap() {
+    el = $('#map_canvas');
+    el.fadeOut('slow', function() {
+        $.getJSON('/location.json', function(data) {
+            initializeGoogleMap(data[0], data[1]);
+        });
+        el.fadeIn('slow'); 
+    });
+}
+

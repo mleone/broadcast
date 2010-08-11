@@ -43,8 +43,8 @@ p#nav               {float: right; font-size: 14px;}
 a#expando           {float: left; padding-left: 5px; color: #666666;
                     font-size: 14px; text-decoration: none; cursor: pointer;}
 a#expando:hover     {text-decoration: underline;}
-h3                  {float: left; width: 100px; margin-bottom: 10px;
-                     color: #A4C639; font-size: 14px; font-weight: bold;}
+h3                  {float: left; margin-bottom: 10px;
+                     color: #A4C639; font-size: 17px; font-weight: bold;}
 #nav a              {color: #666666; text-decoration: none; padding: 0 5px;}
 #backtrace li.frame-info {background: #f7f7f7; padding-left: 10px;
                          font-size: 12px; color: #333333;}
@@ -81,6 +81,15 @@ table.req tr td     {padding: 2px 20px 2px 10px;
 
 table td.code       {width:750px}
 table td.code div   {width:750px;overflow:hidden}
+
+.refresh-link {
+    text-decoration:none;
+    color: #A4C639;
+}
+
+.refresh-icon {
+    margin-left: 10px;
+}
 
 .cactus-bar {
   background:url("images/hr-green-gradient.gif") no-repeat scroll right top #ACD659;
