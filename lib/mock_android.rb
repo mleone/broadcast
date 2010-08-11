@@ -10,8 +10,11 @@ class Android
     result
   end
 
+  # this stub produces random coordinates, within some bounds, for dynamic testing
   def getLastKnownLocation
-    {"error"=>nil, "id"=> get_id, "result"=>{"passive"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>-77.3950646833333, "latitude"=>41.8636186666667, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "gps"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>-77.3950646833333, "latitude"=>41.8636186666667, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "network"=>nil}}
+    lat = 41.39506 + rand
+    lon = -78.19506 + rand
+    {"error"=>nil, "id"=> get_id, "result"=>{"passive"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>lon, "latitude"=>lat, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "gps"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>lon, "latitude"=>lat, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "network"=>nil}}
   end
 
   def batteryGetTemperature
