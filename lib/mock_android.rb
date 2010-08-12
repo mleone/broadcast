@@ -32,6 +32,7 @@ class Android
     dest = File.join SNAPSHOT_DIR, "latest.jpg"
     src = File.join IMAGE_DIR, image
     FileUtils.copy src, dest
+    sleep 1.0 # simulate camera delay :-)
     true
   end
 
