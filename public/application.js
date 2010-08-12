@@ -63,10 +63,10 @@ function codeAddress(address) {
 function refreshLiveView() {
   el = $("#snapshot");
   my_date = new Date;
-  path = "/snapshot.jpg?" + my_date.getTime();
+  path = "/update.jpg?" + my_date.getTime();
   el.fadeOut('slow', function() {
     el.attr("src", path);
-    el.fadeIn('slow');
+    el.bind("load", function () { $(this).fadeIn('slow'); });
   });
 }
 

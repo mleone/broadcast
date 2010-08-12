@@ -110,5 +110,7 @@ table td.code div   {width:750px;overflow:hidden}
 
 #snapshot-container 
 {
-  float:right;
+  width: 486px;
+  height: 363px; 
+  float: right;
 }

@@ -20,6 +20,11 @@ class Broadcast < Sinatra::Base
     capture_picture_data
   end
 
+  get "/update.jpg" do
+    content_type 'image/png'
+    capture_picture_data :refresh => true
+  end
+
   get '/location.json' do
     content_type 'json'
     location_coordinates.to_json
