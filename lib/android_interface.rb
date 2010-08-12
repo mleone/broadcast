@@ -32,9 +32,11 @@ module AndroidInterface
   end
 
   # stub
-  def capture_picture_data
+  def capture_picture_data(opts={})
     img_path = File.join SNAPSHOT_DIR, "latest.jpg"
-    DROID.cameraCapturePicture img_path
-    File.read(img_path)
+    if !File.exist?(img_path) || opts[:refresh] 
+      DROID.cameraCapturePicture img_path
+    end
+   File.read img_path
   end
 end
