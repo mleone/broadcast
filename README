@@ -1,5 +1,4 @@
 BROADCAST
-
 Broadcast is an embedded web application for remote Android device management.
 
 Broadcast has four goals:
@@ -11,9 +10,7 @@ Broadcast has four goals:
 - Framework:  Set the groundwork for a number of advanced applications.
 
 
-
 POTENTIAL APPLICATIONS
-
 Off the top of our heads, here are some potential applications:
 
 - Remote surveillance systems
@@ -22,9 +19,7 @@ Off the top of our heads, here are some potential applications:
 - Temporary network file servers
 
 
-
 CURENT FEATURE SET
-
 Broadcast is alpha-quality software, and is not feature-complete.  The following features are supported:
 
 - view battery temperature
@@ -32,17 +27,13 @@ Broadcast is alpha-quality software, and is not feature-complete.  The following
 - remote camera control and image preview
 
 
-
 PLANNED FEATURES
-
 - remote video recording
 - remote audio recording
 - file management
 
 
-
 HOW BROADCAST WAS BUILT
-
  - Jruby
  - SL4A, Scripting Layer for Android
  - Sinatra and rack
@@ -51,15 +42,11 @@ HOW BROADCAST WAS BUILT
  - JSON for serializing AJAX request data
 
 
-
 SETUP
-
 Pleave see the SETUP file in this directory.
 
 
-
 LICENSE
-
 Broadcast is open-source software distributed under the MIT license.
 
 Copyright (c) 2010 Michael Leone, with support from Panoptic Development, Inc.

@@ -1,5 +1,4 @@
 SETUP ON ANDROID DEVICES
-
 Currently, Broadcast isn't available as a standalone APK, so you'll have to install it manually:
 
 - Install Scripting Layer for Android (SL4A) on the device: http://code.google.com/p/android-scripting/
@@ -9,9 +8,7 @@ Currently, Broadcast isn't available as a standalone APK, so you'll have to inst
   to copy this directly to the script directory, not a subdirectory!
 
 
-
 DEVELOPMENT SETUP
-
 In development mode, Broadcast has no external dependencies, other than Ruby!
 
 Tested with the following:
@@ -20,9 +17,7 @@ ruby 1.9.1p243 (2009-07-16 revision 24175)
 jruby 1.2.0 (ruby 1.8.6 patchlevel 287)
 
 
-
 RUN THE APPLICATION
-
 On a live Android device, simply run config.rb from SL4A.
 
 In development mode, run config.rb using your favorite Ruby interpreter.
@@ -31,12 +26,7 @@ Note that the file is named config.rb, not the standard config.ru.
 Traditionally-named rackup files caused older versions of SL4A to crash.
 
 
-
 RUN THE TESTS
-
 On a live Android device, simply run config.rb from SL4A.
 
 In development mode, run config.rb using your favorite Ruby interpreter.
-
-
-
