@@ -92,7 +92,7 @@ table td.code div   {width:750px;overflow:hidden}
 }
 
 .cactus-bar {
-  background:url("images/hr-green-gradient.gif") no-repeat scroll right top #ACD659;
+  background:url("/images/hr-green-gradient.gif") no-repeat scroll right top #ACD659;
   clear:both;
   display:block;
   height:2px;
