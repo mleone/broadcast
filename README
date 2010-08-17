@@ -33,10 +33,10 @@ PLANNED FEATURES
 - file management
 
 
-HOW BROADCAST WAS BUILT
+UNDER THE HOOD
  - Jruby
  - SL4A, Scripting Layer for Android
- - Pure ruby server stack:  sinatra + rack + webrick
+ - Lightweight, pure ruby stack:  sinatra + rack + webrick
  - rack-test and test/unit
  - jQuery Javascript framework
  - JSON for serializing AJAX request data

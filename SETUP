@@ -29,4 +29,4 @@ Traditionally-named rackup files caused older versions of SL4A to crash.
 RUN THE TESTS
 On a live Android device, simply run config.rb from SL4A.
 
-In development mode, run config.rb using your favorite Ruby interpreter.
+In development mode, run test.rb using your favorite Ruby interpreter.
