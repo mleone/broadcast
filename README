@@ -1,7 +1,65 @@
-Broadcast has no external dependencies, other than Ruby!
+BROADCAST
 
-Tested on the following:
-ruby 1.8.7 (2009-06-12 patchlevel 174)
-ruby 1.9.1p243 (2009-07-16 revision 24175)
-jruby 1.2.0 (ruby 1.8.6 patchlevel 287)
+Broadcast is an embedded web application for remote Android device management.
 
+Broadcast has four goals:
+
+- Remote monitoring:  Make Android state and device data available over a network.
+- Remote control:  Allow remote control of an Android device over a network.
+- Proof-of-concept:  Demonstrate that complex ruby applications can run in an 
+  Android environment, even with constrained resources.
+- Framework:  Set the groundwork for a number of advanced applications.
+
+
+
+POTENTIAL APPLICATIONS
+
+Off the top of our heads, here are some potential applications:
+
+- Remote surveillance systems
+- Remote device diagnostic utilities
+- Location tracking systems
+- Temporary network file servers
+
+
+
+CURENT FEATURE SET
+
+Broadcast is alpha-quality software, and is not feature-complete.  The following features are supported:
+
+- view battery temperature
+- view last location
+- remote camera control and image preview
+
+
+
+PLANNED FEATURES
+
+- remote video recording
+- remote audio recording
+- file management
+
+
+
+HOW BROADCAST WAS BUILT
+
+ - Jruby
+ - SL4A, Scripting Layer for Android
+ - Sinatra and rack
+ - rack-test and test/unit
+ - jQuery Javascript framework
+ - JSON for serializing AJAX request data
+
+
+
+SETUP
+
+Pleave see the SETUP file in this directory.
+
+
+
+LICENSE
+
+Broadcast is open-source software distributed under the MIT license.
+
+Copyright (c) 2010 Michael Leone, with support from Panoptic Development, Inc.
