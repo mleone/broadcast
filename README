@@ -36,7 +36,7 @@ PLANNED FEATURES
 HOW BROADCAST WAS BUILT
  - Jruby
  - SL4A, Scripting Layer for Android
- - Sinatra and rack
+ - Pure ruby server stack:  sinatra + rack + webrick
  - rack-test and test/unit
  - jQuery Javascript framework
  - JSON for serializing AJAX request data
