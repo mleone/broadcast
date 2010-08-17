@@ -17,6 +17,18 @@ class Android
     {"error"=>nil, "id"=> get_id, "result"=>{"passive"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>lon, "latitude"=>lat, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "gps"=>{"provider"=>"gps", "time"=>1280112285800, "longitude"=>lon, "latitude"=>lat, "speed"=>0, "accuracy"=>24, "altitude"=>38.7}, "network"=>nil}}
   end
 
+  def startLocating
+    {"error" => nil, "id" => get_id, "result" => nil}
+  end
+
+  def stopLocating
+    {"error" => nil, "id" => get_id, "result" => nil}
+  end
+
+  def readLocation
+    {"error" => nil, "id" => get_id, "result" => nil}
+  end
+
   def batteryGetTemperature
     {"error" => nil, "id" => get_id, "result" => 330}
   end

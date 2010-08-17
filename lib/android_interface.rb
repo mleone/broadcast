@@ -24,8 +24,9 @@ module AndroidInterface
     @status = map[result]
   end
 
-  def location_coordinates
+  def location_coordinates(opts={})
     result = DROID.getLastKnownLocation["result"]
+    refresh_location if (result.nil? || opts["refresh"])
     data = result["gps"] || result["network"] || result["passive"]
     latitude, longitude = data["latitude"], data["longitude"]
     longitude ? [latitude, longitude] : false
@@ -38,5 +39,14 @@ module AndroidInterface
       DROID.cameraCapturePicture img_path
     end
    File.read img_path
+  end
+
+  private
+
+  def refresh_location
+    DROID.startLocating
+    sleep 1
+    DROID.readLocation
+    DROID.stopLocating 
   end
 end

@@ -27,6 +27,6 @@ class Broadcast < Sinatra::Base
 
   get '/location.json' do
     content_type 'json'
-    location_coordinates.to_json
+    location_coordinates(:refresh => true).to_json
   end
 end
