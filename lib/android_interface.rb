@@ -26,7 +26,7 @@ module AndroidInterface
 
   def location_coordinates
     result = DROID.getLastKnownLocation["result"]
-    data = result["gps"] || result["passive"]
+    data = result["gps"] || result["network"] || result["passive"]
     latitude, longitude = data["latitude"], data["longitude"]
     longitude ? [latitude, longitude] : false
   end
