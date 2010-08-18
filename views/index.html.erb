@@ -18,7 +18,7 @@
     $(document).ready(function() {
         initializeGoogleMap(lat, lon);
         $('#file-browser').fileTree({ script: '/browse' }, function(file) {
-            alert(file);
+            window.location = "/download?file=" + escape(file);
         });
     });
   </script>
@@ -70,7 +70,6 @@
       <a href="javascript:slideToggle('files')" class="slider"><h2>File Browser<span id="files-icon"> (+) </span></h2></a> 
       <div class="blue-bar"></div>
       <div id="files" class='condensed'>
-          Word.
           <div id="file-browser"></div>
           <div class="clear"></div>
       </div>
