@@ -23,6 +23,11 @@ class Broadcast < Sinatra::Base
     render_file_tree params[:dir] 
   end
 
+  get "/download" do
+    file = File.join MEDIA_DIR + params[:file]
+    send_file(file, :disposition => 'attachment', :filename => File.basename(file))
+  end
+
   get "/snapshot.jpg" do
     content_type 'image/png'
     capture_picture_data

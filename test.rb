@@ -33,6 +33,11 @@ class HelloWorldTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
+  def test_download
+    get '/download?file=/snapshots/latest.jpg'
+    assert last_response.ok?
+  end
+
   def test_tts
     post '/say.json'
     assert last_response.ok?
