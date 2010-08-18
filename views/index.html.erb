@@ -11,10 +11,10 @@
   <script type="text/javascript" src="/javascripts/application.js"></script>
 
   <script type="text/javascript">
+    lat = "<%= @latitude %>";
+    lon = "<%= @longitude %>";
     $(document).ready(function() {
-        initializeGoogleMap("<%= @latitude %>", "<%= @longitude %>");
-        //var loc = "";
-        //if (loc) { codeAddress(loc); }
+        initializeGoogleMap(lat, lon);
     });
   </script>
 
@@ -45,12 +45,31 @@
       </div>
 
       <div class="cactus-bar"></div>
-      
-      <div id="backtrace" class='condensed' style="height:400px">
+     
+      <a href="javascript:slideToggle('monitor')" class="slider"><h2>Monitoring <span id="monitor-icon"> (+) </span></h2></a> 
+      <div class="blue-bar"></div>
+      <div id="monitor" class='condensed'>
           <%= erb :"map.html", :layout => false %>
-          <%= erb :"snapshot.html", :layout => false%> 
+          <%= erb :"snapshot.html", :layout => false %> 
           <div class="clear"></div>
       </div>
+      <div class="clear"></div>
+
+      <a href="javascript:slideToggle('remote')" class="slider"><h2>Remote Control<span id="remote-icon"> (+) </span></h2></a> 
+      <div class="blue-bar"></div>
+      <div id="remote" class='condensed'>
+          <%= erb :"tts.html", :layout => false %>
+          <div class="clear"></div>
+      </div>
+
+      <a href="javascript:slideToggle('files')" class="slider"><h2>File Browser<span id="files-icon"> (+) </span></h2></a> 
+      <div class="blue-bar"></div>
+      <div id="files" class='condensed'>
+          Word.
+          <div class="clear"></div>
+      </div>
+
+   <div class="clear"></div>
    <small>© 2010 Michael Leone with support from <a href="http://www.panopticdev.com" target="_blank">Panoptic Development, Inc.</a>.</small>
   </div> <!-- /WRAP -->
 </body>
