@@ -80,3 +80,34 @@ function refreshMap() {
     });
 }
 
+function slideToggle(elName) {
+    el = $('#' + elName);
+    icon = $('#' + elName + '-icon');
+    if (el.is(':hidden')) {
+      el.slideDown('slow');
+      icon.html("(-)");
+      if (elName == 'monitor') { initializeGoogleMap(lat, lon); }
+    } else {
+      el.slideUp('slow');
+      icon.html("(+)");
+    }
+}
+
+function textToSpeech() {
+    $('#tts-success, #tts-failure').hide();
+    $('#tts-spinner').show()
+    data = { message: escape($("#tts-message").val()) };
+    $.post('/say.json', data, function(wasSuccessful) {
+        $('#tts-spinner').hide()
+        if (wasSuccessful) {
+            $('#tts-success').html("TTS Complete.");
+            $('#tts-success').fadeIn();
+            setTimeout('$("#tts-success").fadeOut()', 5000);
+        } else {
+            $('#tts-failure').html("Sorry, there was a problem with TTS.");
+            $('#tts-failure').fadeIn();
+            setTimeout('$("#tts-failure").fadeOut()', 5000);
+        }
+    }, 'json');
+}
+ 
