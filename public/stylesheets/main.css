@@ -138,3 +138,11 @@ table td.code div   {width:750px;overflow:hidden}
 
 #tts-success {font-size: 16px; color: green;}
 #tts-failure {font-size: 16px; color: red;}
+
+#file-browser
+{
+    border: 1px solid;
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+}

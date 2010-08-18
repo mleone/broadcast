@@ -1,9 +1,10 @@
 APP_DIR = File.expand_path File.dirname(__FILE__)
 LIB_DIR = File.join APP_DIR, 'lib'
 PUBLIC_DIR = File.join APP_DIR, "public"
+MEDIA_DIR = File.join PUBLIC_DIR, "media"
 IMAGE_DIR = File.join PUBLIC_DIR, "images"
 VIEW_DIR = File.join APP_DIR, "views"
-SNAPSHOT_DIR = File.join APP_DIR, "snapshots"
+SNAPSHOT_DIR = File.join MEDIA_DIR, "snapshots"
 LOCAL_GEM_DIR = File.join(APP_DIR, 'vendor', 'gems')
 
 $LOAD_PATH << APP_DIR
