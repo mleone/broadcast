@@ -5,16 +5,21 @@
   <title>Android Broadcast</title>
 
   <link href="/stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/jqueryFileTree.css" media="screen" rel="stylesheet" type="text/css" />
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="/javascripts/application.js"></script>
+  <script type="text/javascript" src="/javascripts/jqueryFileTree.js"></script>
 
   <script type="text/javascript">
     lat = "<%= @latitude %>";
     lon = "<%= @longitude %>";
     $(document).ready(function() {
         initializeGoogleMap(lat, lon);
+        $('#file-browser').fileTree({ script: '/browse' }, function(file) {
+            alert(file);
+        });
     });
   </script>
 
@@ -66,6 +71,7 @@
       <div class="blue-bar"></div>
       <div id="files" class='condensed'>
           Word.
+          <div id="file-browser"></div>
           <div class="clear"></div>
       </div>
 
