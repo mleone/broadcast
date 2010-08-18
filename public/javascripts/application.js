@@ -96,7 +96,7 @@ function slideToggle(elName) {
 function textToSpeech() {
     $('#tts-success, #tts-failure').hide();
     $('#tts-spinner').show()
-    data = { message: escape($("#tts-message").val()) };
+    data = { message: $("#tts-message").val() };
     $.post('/say.json', data, function(wasSuccessful) {
         $('#tts-spinner').hide()
         if (wasSuccessful) {
