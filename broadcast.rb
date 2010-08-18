@@ -12,7 +12,7 @@ class Broadcast < Sinatra::Base
     @latitude, @longitude = location_coordinates
     @temp = battery_temperature
     @status = battery_status
-    erb :"index.html" 
+    erb :"index.html"
   end
 
   get "/snapshot.jpg" do
@@ -29,4 +29,10 @@ class Broadcast < Sinatra::Base
     content_type 'json'
     location_coordinates(:refresh => true).to_json
   end
+
+  post '/say.json' do
+    content_type 'json'
+    say(params[:message]).to_json
+  end 
+
 end

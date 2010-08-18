@@ -28,9 +28,13 @@ class HelloWorldTest < Test::Unit::TestCase
     assert last_response.body.length > 10000
   end
 
-  def test_get_json
-    get 'location.json'
+  def test_get_location
+    get '/location.json'
     assert last_response.ok?
   end
 
+  def test_tts
+    post '/say.json'
+    assert last_response.ok?
+  end
 end

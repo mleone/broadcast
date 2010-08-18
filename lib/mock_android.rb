@@ -48,4 +48,13 @@ class Android
     true
   end
 
+  def ttsIsSpeaking
+    {"error" => nil, "id" => get_id, "result" => false}
+  end
+
+  def ttsSpeak(message)
+    sleep 1
+    {"error" => nil, "id" => get_id, "result" => nil}
+  end
+
 end

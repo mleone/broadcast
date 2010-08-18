@@ -41,6 +41,16 @@ module AndroidInterface
    File.read img_path
   end
 
+  # returns false if unsuccessful
+  def say(message)
+    if DROID.ttsIsSpeaking["result"] 
+      false
+    else
+      DROID.ttsSpeak message
+      true
+    end
+  end
+
   private
 
   def refresh_location
