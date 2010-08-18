@@ -1,9 +1,11 @@
 require "erb"
 require "json/pure"
 require "android_interface"
+require "file_tree_interface" 
 
 class Broadcast < Sinatra::Base 
   include AndroidInterface
+  include FileTreeInterface
 
   set :views, VIEW_DIR
   set :public, PUBLIC_DIR
@@ -13,6 +15,12 @@ class Broadcast < Sinatra::Base
     @temp = battery_temperature
     @status = battery_status
     erb :"index.html"
+  end
+
+  # This takes a POST request for jquery-file-tree compatability, 
+  # I don't necessarily agree with it 
+  post '/browse' do
+    render_file_tree params[:dir] 
   end
 
   get "/snapshot.jpg" do
