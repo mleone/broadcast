@@ -8,6 +8,7 @@ UL.jqueryFileTree {
 
 UL.jqueryFileTree LI {
 	list-style: none;
+    float: none;
 	padding: 0px;
 	padding-left: 20px;
 	margin: 0px;

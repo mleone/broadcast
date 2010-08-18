@@ -4,7 +4,6 @@ body                {background: #EEEEEE; margin: 0; padding: 0;
                      'Garuda';}
 code                {font-family: 'Lucida Console', monospace;
                      font-size: 12px;}
-li                  {height: 18px;}
 ul                  {list-style: none; margin: 0; padding: 0;}
 ol:hover            {cursor: pointer;}
 ol li               {white-space: pre;}
