@@ -25,18 +25,20 @@ Broadcast is alpha-quality software, and is not feature-complete.  The following
 - view battery temperature
 - view last location
 - remote camera control and image preview
+- remote text-to-speech
+- file browsing and downloading
 
 
 PLANNED FEATURES
 - remote video recording
 - remote audio recording
-- file management
+- file uploading
 
 
 UNDER THE HOOD
  - Jruby
  - SL4A, Scripting Layer for Android
- - Lightweight, pure ruby stack:  sinatra + rack + webrick
+ - Lightweight, pure ruby server stack:  sinatra + rack + webrick
  - rack-test and test/unit
  - jQuery Javascript framework
  - JSON for serializing AJAX request data
