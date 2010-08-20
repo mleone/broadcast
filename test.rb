@@ -38,6 +38,12 @@ class HelloWorldTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
+  def test_upload
+    file = "automated_test_file.txt"
+    put "/upload?qqfile=#{file}"
+    assert last_response.ok?
+  end
+
   def test_tts
     post '/say.json'
     assert last_response.ok?

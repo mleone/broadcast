@@ -24,8 +24,8 @@ class Broadcast < Sinatra::Base
   end
 
   get "/download" do
-    file = File.join MEDIA_DIR + params[:file]
-    send_file(file, :disposition => 'attachment', :filename => File.basename(file))
+    f = File.join MEDIA_DIR + params[:file]
+    send_file f, :disposition => 'attachment', :filename => File.basename(f)
   end
 
   get "/snapshot.jpg" do
@@ -48,4 +48,17 @@ class Broadcast < Sinatra::Base
     say(params[:message]).to_json
   end 
 
+  # using PUT request instead of POST, prevents problems uploading large files.
+  put '/upload' do
+    content_type 'json'
+    filename = params["qqfile"]
+    path = File.join UPLOADS_DIR, filename
+    if File.exist? path
+      return {:success => false, :message => "File already exists."}.to_json 
+    else
+      file_data = env["rack.request.form_vars"]
+      File.open(path, 'w') {|f| f.write(file_data) }
+      return {:success => true, :message => "File uploaded successfully"}.to_json
+    end
+  end
 end
