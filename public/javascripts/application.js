@@ -110,4 +110,8 @@ function textToSpeech() {
         }
     }, 'json');
 }
+
+function uploadFile() {
+  
+}
  

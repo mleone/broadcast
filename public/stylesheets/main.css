@@ -107,23 +107,31 @@ table td.code div   {width:750px;overflow:hidden}
   display:block;
   height:2px;
   line-height:0;
-  margin-bottom:1.5em;
+  margin-bottom:0em;
   margin-top:0em;
   overflow:hidden;
   padding:0;
 }
 
 
-#location-container 
+#location-container, #browser-container 
 {
   float:left;
 }
 
-#snapshot-container 
+#snapshot-container, #uploader-container
 {
   width: 486px;
   height: 363px; 
   float: right;
+}
+
+#file-uploader
+{
+    padding: 10px;
+    border: 1px solid;
+    height: 280px;
+    width: 450px;
 }
 
 #monitor { height:450px; }
@@ -131,6 +139,9 @@ table td.code div   {width:750px;overflow:hidden}
 #monitor, #remote, #files 
 { 
     display:none;
+    border: 1px solid #a7c9ee;
+    border-width: 0 0 1px 1px;
+    padding: 0 0 7px 12px;
 }
 
 .slider { text-decoration:none }
@@ -141,7 +152,7 @@ table td.code div   {width:750px;overflow:hidden}
 #file-browser
 {
     border: 1px solid;
-    width: 200px;
-    height: 200px;
+    width: 450px;
+    height: 300px;
     overflow: scroll;
 }
