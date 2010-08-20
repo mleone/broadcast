@@ -26,13 +26,12 @@ Broadcast is alpha-quality software, and is not feature-complete.  The following
 - view last location
 - remote camera control and image preview
 - remote text-to-speech
-- file browsing and downloading
+- file browsing, downloading and uploading
 
 
 PLANNED FEATURES
 - remote video recording
 - remote audio recording
-- file uploading
 
 
 UNDER THE HOOD
