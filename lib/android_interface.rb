@@ -51,6 +51,16 @@ module AndroidInterface
     end
   end
 
+  def save_upload(filename, file_data)
+    path = File.join UPLOADS_DIR, filename
+    if File.exist? path
+      {:success => false, :message => "File already exists."}
+    else
+      File.open(path, 'w') {|f| f.write(file_data) }
+      {:success => true, :message => "File uploaded successfully"}
+    end
+  end
+
   private
 
   def refresh_location

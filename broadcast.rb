@@ -51,14 +51,6 @@ class Broadcast < Sinatra::Base
   # using PUT request instead of POST, prevents problems uploading large files.
   put '/upload' do
     content_type 'json'
-    filename = params["qqfile"]
-    path = File.join UPLOADS_DIR, filename
-    if File.exist? path
-      return {:success => false, :message => "File already exists."}.to_json 
-    else
-      file_data = env["rack.request.form_vars"]
-      File.open(path, 'w') {|f| f.write(file_data) }
-      return {:success => true, :message => "File uploaded successfully"}.to_json
-    end
+    save_upload(params["qqfile"], env["rack.request.form_vars"]).to_json
   end
 end
