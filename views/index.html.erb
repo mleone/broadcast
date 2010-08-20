@@ -5,20 +5,30 @@
   <title>Android Broadcast</title>
 
   <link href="/stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/fileuploader.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/jqueryFileTree.css" media="screen" rel="stylesheet" type="text/css" />
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="/javascripts/application.js"></script>
   <script type="text/javascript" src="/javascripts/jqueryFileTree.js"></script>
+  <script type="text/javascript" src="/javascripts/fileuploader.js"></script>
 
   <script type="text/javascript">
     lat = "<%= @latitude %>";
     lon = "<%= @longitude %>";
     $(document).ready(function() {
         initializeGoogleMap(lat, lon);
+
         $('#file-browser').fileTree({ script: '/browse' }, function(file) {
             window.location = "/download?file=" + escape(file);
+        });
+
+        var uploader = new qq.FileUploader({
+            element: document.getElementById('file-uploader'),
+            showMessage: function(message){alert(message)},
+            sizelimit: 15000000,
+            action: '/upload'
         });
     });
   </script>
@@ -67,10 +77,11 @@
           <div class="clear"></div>
       </div>
 
-      <a href="javascript:slideToggle('files')" class="slider"><h2>File Browser<span id="files-icon"> (+) </span></h2></a> 
+      <a href="javascript:slideToggle('files')" class="slider"><h2>File Manager<span id="files-icon"> (+) </span></h2></a> 
       <div class="blue-bar"></div>
       <div id="files" class='condensed'>
-          <div id="file-browser"></div>
+          <%= erb :"file_browser.html", :layout => false %>
+          <%= erb :"file_uploader.html", :layout => false %> 
           <div class="clear"></div>
       </div>
 
