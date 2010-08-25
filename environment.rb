@@ -19,6 +19,6 @@ Dir.entries(LOCAL_GEM_DIR).each do |dir|
   $LOAD_PATH << gem_lib if File.exist?(gem_lib)
 end
 
-
+require 'rack' # explicitly require rack to avoid uninitialized constant errors
 require 'sinatra/base'
 require 'broadcast'
