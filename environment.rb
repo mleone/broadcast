@@ -7,6 +7,7 @@ UPLOADS_DIR = File.join MEDIA_DIR, "uploads"
 VIEW_DIR = File.join APP_DIR, "views"
 SNAPSHOT_DIR = File.join MEDIA_DIR, "snapshots"
 LOCAL_GEM_DIR = File.join(APP_DIR, 'vendor', 'gems')
+LOG_FILE = File.join APP_DIR, "log", "sinatra.log"
 
 $LOAD_PATH << APP_DIR
 $LOAD_PATH << LIB_DIR
