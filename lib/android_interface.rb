@@ -27,8 +27,8 @@ module AndroidInterface
   def location_coordinates(opts={})
     result = DROID.getLastKnownLocation["result"]
     refresh_location if (result.nil? || opts["refresh"])
-    data = result["gps"] || result["network"] || result["passive"]
-    latitude, longitude = data["latitude"], data["longitude"]
+    data = result["gps"] || result["network"] || result["passive"] || nil
+    latitude, longitude = data["latitude"], data["longitude"] if data
     longitude ? [latitude, longitude] : false
   end
 
