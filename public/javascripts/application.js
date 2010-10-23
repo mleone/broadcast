@@ -62,11 +62,20 @@ function codeAddress(address) {
 
 function refreshLiveView() {
   el = $("#snapshot");
+  spinner = $("#snapshot-spinner");
   my_date = new Date;
-  path = "/update.jpg?" + my_date.getTime();
-  el.fadeOut('slow', function() {
-    el.attr("src", path);
-    el.bind("load", function () { $(this).fadeIn('slow'); });
+  path = "/media/snapshots/latest.jpg?" + my_date.getTime();
+  spinner.show();
+  $.ajax({
+      type: "POST",
+      url: "/update_snapshot",
+      complete: function(data) {
+          el.fadeOut('slow', function() {
+            el.attr("src", path);
+            el.bind("load", function () { $(this).fadeIn('slow'); });
+            spinner.hide();
+          });
+      }
   });
 }
 

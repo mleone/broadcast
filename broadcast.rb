@@ -14,6 +14,7 @@ class Broadcast < Sinatra::Base
     @latitude, @longitude = location_coordinates
     @temp = battery_temperature
     @status = battery_status
+    capture_picture_data
     erb :"index.html"
   end
 
@@ -28,13 +29,7 @@ class Broadcast < Sinatra::Base
     send_file f, :disposition => 'attachment', :filename => File.basename(f)
   end
 
-  get "/snapshot.jpg" do
-    content_type 'image/png'
-    capture_picture_data
-  end
-
-  get "/update.jpg" do
-    content_type 'image/png'
+  post "/update_snapshot" do
     capture_picture_data :refresh => true
   end
 

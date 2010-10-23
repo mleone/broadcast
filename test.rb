@@ -16,16 +16,9 @@ class HelloWorldTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_get_snapshot
-    get '/snapshot.jpg'
+  def test_update_snapshot
+    post '/update_snapshot'
     assert last_response.ok?
-    assert last_response.body.length > 10000
-  end
-
-  def test_get_update
-    get '/update.jpg'
-    assert last_response.ok?
-    assert last_response.body.length > 10000
   end
 
   def test_get_location

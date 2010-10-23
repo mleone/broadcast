@@ -146,6 +146,8 @@ table td.code div   {width:750px;overflow:hidden}
 
 .slider { text-decoration:none }
 
+.hidden { display: none }
+
 #tts-success {font-size: 16px; color: green;}
 #tts-failure {font-size: 16px; color: red;}
 

@@ -32,13 +32,12 @@ module AndroidInterface
     longitude ? [latitude, longitude] : false
   end
 
-  # stub
   def capture_picture_data(opts={})
     img_path = File.join SNAPSHOT_DIR, "latest.jpg"
     if !File.exist?(img_path) || opts[:refresh] 
       DROID.cameraCapturePicture img_path
     end
-   File.read img_path
+    true
   end
 
   # returns false if unsuccessful
